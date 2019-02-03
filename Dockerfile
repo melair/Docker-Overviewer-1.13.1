@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 RUN mkdir /tmp/overviewer
 WORKDIR /tmp/overviewer
 
-COPY COPY/Minecraft-Overviewer-minecraft113-fixed /tmp/overviewer
+RUN git clone --single-branch --branch minecraft113 https://github.com/overviewer/Minecraft-Overviewer.git .
 COPY COPY/Minecraft-Overviewer-minecraft113-fixed/overviewer_core/aux_files/genPOI.py /tmp/overviewer
 RUN python2 setup.py build
 
